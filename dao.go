@@ -27,7 +27,8 @@ func readIni() (username, password, host, database string, err error) {
 	for {
 		//读取一行
 		buf, err := br.ReadBytes('\n')
-		line := strings.tr string(buf)
+		//将读取的字节转成字符串，并去掉头部和尾部的空格
+		line := strings.Trim(string(buf),"")
 		//判断行首是否以#开头
 		if strings.HasPrefix(line, "#") {
 			continue
